@@ -21,7 +21,7 @@ import {currencyrates} from '../model/currency-rates';
                             font: -webkit-small-control;
                             padding-left: 33px;
                         }
-                .contsize {width: 888px; height: 700px;}
+                .contsize {width: 90%; height: 80%;} /* {width: 888px; height: 700px;} */
     `],
     providers: [CurrencyRatesService],
 })
