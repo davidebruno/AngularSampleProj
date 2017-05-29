@@ -1,0 +1,29 @@
+{
+  "extends": "../tsconfig.json",
+// tsconfig.app.json
+
+  // "compilerOptions": {
+  //   "target": "es5",
+  //   "module": "commonjs",
+  //   "moduleResolution": "node",
+  //   "sourceMap": true,
+  //   "emitDecoratorMetadata": true,
+  //   "experimentalDecorators": true, // does not support true in this project to change libraries...
+  //   "lib": [ "es2015", "dom" ],
+  //   "noImplicitAny": true,
+  //   "suppressImplicitAnyIndexErrors": true
+  //  }, 
+
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "module": "es2015",
+    "baseUrl": "",
+    "sourceMap": true,
+    "types": []
+  },
+
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

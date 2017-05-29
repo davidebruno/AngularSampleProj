@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+  
+              .production { color: blue}
+              .debug      { color: lightseagreen}
+              .title {text-align: center; /* color: #7B68EE; */
+                        font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                         color: #2c3e50;
+              }

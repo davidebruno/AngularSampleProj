@@ -1,0 +1,13 @@
+package.json
+
+// previous options original
+  // "scripts": {
+  //   "ng": "ng",
+  //   "start": "ng serve",
+  //   "build": "ng build",
+  //   "postbuild": "npm run deploy",
+  //   "deploy": "copyfiles -f dist/** ../server/buld/public/",
+  //   "test": "ng test",
+  //   "lint": "ng lint",
+  //   "e2e": "ng e2e"
+  // },
