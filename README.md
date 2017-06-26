@@ -7,5 +7,7 @@ After cloning the project you need to install the following:
     - npm install @angular/animations
 
 To execute the project type:
-   npm start
+    - npm start
+    
+Server is running on http://localhost:4800
    
