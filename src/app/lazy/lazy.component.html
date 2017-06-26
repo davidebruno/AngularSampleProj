@@ -1,0 +1,192 @@
+            <div class="margin">
+              <h3>Lazy Loaded Component</h3>
+              <h4>Using Material Components</h4>
+            </div>
+<!--
+            <button md-icon-button [mdMenuTriggerFor]="menu">
+              <md-icon class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></md-icon>
+            </button>
+            <md-menu #menu="mdMenu">
+              <button md-menu-item>
+                <md-icon class="glyphicon glyphicon-film"></md-icon>
+                <span>Films</span>
+              </button>
+              <button md-menu-item>
+                <md-icon class="glyphicon glyphicon-headphones"></md-icon>
+                <span>Music</span>
+              </button>
+              <button md-menu-item>
+                <md-icon class="glyphicon glyphicon-picture"></md-icon>
+                <span>Photos</span>
+              </button>
+            </md-menu>
+      -->      
+
+
+<div class="demo-menu">
+  <div class="menu-section">
+    <div class="divanimation" id="div3">{{ selected }}</div>
+    <md-toolbar> 
+      <button md-raised-button class="margin" [mdMenuTriggerFor]="menu" aria-label="Open basic menu">
+        Selection Menu
+      </button>
+
+      <button md-raised-button class="margin" [mdMenuTriggerFor]="anchorMenu" aria-label="Open anchor menu">
+        Navigation Menu
+      </button>
+
+      <button md-raised-button class="margin" type="button" (click)="modal1.show()">Show Popups</button>
+      
+    </md-toolbar>
+
+    <md-menu #menu="mdMenu">
+      <button md-menu-item *ngFor="let item of items" (click)="select(item.text)" [disabled]="item.disabled">
+        {{ item.text }}
+      </button>
+    </md-menu>
+  </div>
+</div>
+
+  <div class="menu-section">
+
+    <md-menu #anchorMenu="mdMenu">
+      <a md-menu-item *ngFor="let item of items" routerLink="/{{ item.href }}"  [disabled]="item.disabled">
+        {{ item.text }}
+      </a>
+    </md-menu>
+  </div>
+
+
+<!-- Using modal component -->
+  <app-modal #modal1>
+    <div class="app-modal-header">
+      Modal 1 header
+    </div>
+    <div class="app-modal-body">
+      Enter some text
+      <input type="text">
+    </div>
+    <div class="app-modal-footer">
+      <button type="button" class="btn btn-default" (click)="modal1.hide()">Close</button>
+      <button type="button" class="btn btn-default" (click)="modal2.show()">Show modal 2</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </app-modal>
+  
+  <app-modal #modal2>
+    <div class="app-modal-header">
+      Modal 2 header
+    </div>
+    <div class="app-modal-body">
+      Text of the body is shown here...
+    </div>
+    <div class="app-modal-footer">
+       <button type="button" class="btn btn-default" (click)="modal2.hide()">Close</button>
+       <button type="button" class="btn btn-default" (click)="modal3.show()">Show modal 3</button>
+       <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </app-modal>
+  
+  <app-modal #modal3>
+    <div class="app-modal-header">
+      Modal 3 header
+    </div>
+    <div class="app-modal-body">
+      Body content for the 3rd modal
+    </div>
+    <div class="app-modal-footer">
+      <button type="button" class="btn btn-default" (click)="modal3.hide()">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </app-modal>
+
+
+<!--
+
+  <div class="menu-section">
+    <p>
+      Position x: before
+    </p>
+    <md-toolbar class="end-icon">
+      <button md-icon-button [mdMenuTriggerFor]="posXMenu" aria-label="Open x-positioned menu">
+        <md-icon>more_vert</md-icon>
+      </button>
+    </md-toolbar>
+
+    <md-menu xPosition="before" #posXMenu="mdMenu" class="before">
+      <button md-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled">
+        <md-icon>{{ item.icon }}</md-icon>
+        {{ item.text }}
+      </button>
+    </md-menu>
+  </div>
+  <div class="menu-section">
+    <p>
+      Position y: above
+    </p>
+    <md-toolbar>
+      <button md-icon-button [mdMenuTriggerFor]="posYMenu" aria-label="Open y-positioned menu">
+        <md-icon>more_vert</md-icon>
+      </button>
+    </md-toolbar>
+
+    <md-menu yPosition="above" #posYMenu="mdMenu">
+      <button md-menu-item *ngFor="let item of items" [disabled]="item.disabled">
+        {{ item.text }}
+      </button>
+    </md-menu>
+  </div>
+</div>
+
+<div class="demo-menu">
+  <div class="menu-section">
+    <p>overlapTrigger: false</p>
+
+    <md-toolbar>
+      <button md-icon-button [md-menu-trigger-for]="menuOverlay">
+        <md-icon>more_vert</md-icon>
+      </button>
+    </md-toolbar>
+
+    <md-menu [overlapTrigger]="false" #menuOverlay="mdMenu">
+      <button md-menu-item *ngFor="let item of items" [disabled]="item.disabled">
+        {{ item.text }}
+      </button>
+    </md-menu>
+  </div>
+  <div class="menu-section">
+    <p>
+      Position x: before, overlapTrigger: false
+    </p>
+    <md-toolbar class="end-icon">
+      <button md-icon-button [md-menu-trigger-for]="posXMenuOverlay">
+        <md-icon>more_vert</md-icon>
+      </button>
+    </md-toolbar>
+
+    <md-menu xPosition="before" [overlapTrigger]="false" #posXMenuOverlay="mdMenu" class="before">
+      <button md-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled">
+        <md-icon>{{ item.icon }}</md-icon>
+        {{ item.text }}
+      </button>
+    </md-menu>
+  </div>
+  <div class="menu-section">
+    <p>
+      Position y: above, overlapTrigger: false
+    </p>
+    <md-toolbar>
+      <button md-icon-button [md-menu-trigger-for]="posYMenuOverlay">
+        <md-icon>more_vert</md-icon>
+      </button>
+    </md-toolbar>
+
+    <md-menu yPosition="above" [overlapTrigger]="false" #posYMenuOverlay="mdMenu">
+      <button md-menu-item *ngFor="let item of items" [disabled]="item.disabled">
+        {{ item.text }}
+      </button>
+    </md-menu>
+  </div>
+</div>
+
+-->

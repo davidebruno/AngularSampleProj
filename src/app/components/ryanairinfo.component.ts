@@ -3,7 +3,7 @@ import {RyanairAirportsCountriesService} from '../services/ryanair-airportscount
 import {Base} from '../utility/base';
 import {ryanair} from '../model/airportscountries.ryanair';
 import {Observable} from 'rxjs/Observable';
-import {DropdownModule, SelectItem} from 'primeng/primeng';
+import {DropdownModule, MultiSelectModule, SelectItem} from 'primeng/primeng';
 
 @Component({
     selector: 'ryanairinfo',
@@ -32,23 +32,51 @@ import {DropdownModule, SelectItem} from 'primeng/primeng';
                </div>
 
             <div class="error" *ngIf="countries?.length <= 0">Connection error retrieving data</div>
-            <h4 class="first">Airports</h4>
-              <p-dropdown [options]="airportsSelItem" [(ngModel)]="selectedAirport" [style]="{'width':'150px'}"
+            
+            <div class="panel panel-default extended">  
+             <div class="panel-heading"> Airport Details</div>
+            </div>
+              <table>
+               <tr>
+                 <td>
+                   <p-dropdown [options]="airportsSelItem" [(ngModel)]="selectedAirport" [style]="{'width':'150px'}"
                           filter="filter" placeholder="Select an Airport">
-              </p-dropdown>
-            <div class='infocountry' *ngIf='selectedAirport != null'>
+                   </p-dropdown>
+                 </td>
+                 <td class="reentrant">
+                    <p-multiSelect [options]="airportsSelItem" [(ngModel)]="selectedMultipleAirport" 
+                      class="ui-multiselect-items" ui-multiselect-panel defaultLabel="Select Multiple Airports">
+                    </p-multiSelect>
+                 </td>
+                </tr>
+              </table>
+            <div class='infocountry' *ngIf='(selectedAirport != null) '>
                         <airport-details [airport]=selectedAirport></airport-details>
+            </div>
+            <div class='infocountry' *ngIf=' (selectedMultipleAirport != null) '>
+              <airport-details-list  [airportList]=selectedMultipleAirport></airport-details-list>
             </div>
      </div>
       </div>
       </tr>
       </div>
+      
+       <!-- airport-details [airportList]=selectedMultipleAirport></airport-details -->
+
+      <!-- <p>Selected Airports: {{selectedMultipleAirport}}</p> -->
+
+
+
     `,
     styles: [`
               .error {color:red;}
               .infocountry { color: #1f89ce; font-size: medium;
                               padding-top: 10px;}
-              .reentrant   { padding-left: 18px;} 
+              .reentrant   { padding-left: 18px;}
+              .extended {
+                margin-button: 5px;
+                margin-top:    10px;
+              }
               `],
     providers: [RyanairAirportsCountriesService],
 })
@@ -60,6 +88,7 @@ export class RyanAirInfoComponent extends Base {
    airportsSelItem:  SelectItem[] = [];
    selectedCountry: SelectItem;
    selectedAirport: SelectItem;
+   selectedMultipleAirport: SelectItem[];
    dataAvailable = false;
    errorMessage:any;
 

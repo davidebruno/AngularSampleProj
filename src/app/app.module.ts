@@ -8,6 +8,7 @@ import { EagerComponent } from './eager.component';
 import {RyanAirInfoComponent} from './components/ryanairinfo.component';
 import {CurrencyRatesComponent} from './components/currency-rates.component';
 import {AirportDetailsComponent} from './components/airport-details.component';
+import {AirportDetailsListComponent} from './components/airport-details-list.component';
 import {LoginComponent} from 'app/components/login.component';
 import {YoutubeListComponent} from 'app/components/youtube-list.component';
 import {YoutubeComponent} from 'app/components/youtube.component';
@@ -31,7 +32,7 @@ import {AuthenticationGuard} from 'app/services/authentication-guard.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import {DropdownModule} from 'primeng/primeng';
+import {DropdownModule, MultiSelectModule} from 'primeng/primeng';
 // import {ChartModule} from 'primeng/primeng';
 import { ChartModule } from 'angular2-chartjs';
 
@@ -44,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RyanAirInfoComponent,
     CurrencyRatesComponent,
     AirportDetailsComponent,
+    AirportDetailsListComponent,
     NavBarComponent,
     LoginComponent,
     YoutubeComponent,
@@ -55,6 +57,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpModule,
     routing,
+    MultiSelectModule,
     DropdownModule,
     ChartModule,
     BrowserAnimationsModule,
