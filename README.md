@@ -10,4 +10,6 @@ To execute the project type:
     - npm start
     
 Server is running on http://localhost:4800
+
+This app is making REST call to Rynair and Yahoo's website to retrieve JSON data related to Airports and Currencies.
    
